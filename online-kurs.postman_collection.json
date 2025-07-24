@@ -1,0 +1,172 @@
+{
+	"info": {
+		"_postman_id": "221d7e0f-9910-49f2-8348-c490829ba5d0",
+		"name": "online-kurs",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "41773954"
+	},
+	"item": [
+		{
+			"name": "getALL",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": {
+						"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4ODIzMjhiZTNlMDhhYzQxN2ExNzI1YiIsInJvbGUiOiJBRE1JTiIsImlzQWN0aXZlIjp0cnVlLCJpYXQiOjE3NTMzNjU5MTEsImV4cCI6MTc1MzQ1MjMxMX0.T1BdWbbv8wUgP-6sRuD6JRBfyxuk_CxS5ZYC19l1yHo"
+					}
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "localhost:2000/api/admin"
+			},
+			"response": []
+		},
+		{
+			"name": "byId",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": {
+						"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4ODIzMjhiZTNlMDhhYzQxN2ExNzI1YiIsInJvbGUiOiJBRE1JTiIsImlzQWN0aXZlIjp0cnVlLCJpYXQiOjE3NTMzNjU5MTEsImV4cCI6MTc1MzQ1MjMxMX0.T1BdWbbv8wUgP-6sRuD6JRBfyxuk_CxS5ZYC19l1yHo"
+					}
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": "localhost:2000/api/admin/id/687f94de30c6778b80fba0d1"
+			},
+			"response": []
+		},
+		{
+			"name": "Delete",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": {
+						"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4ODIzMjhiZTNlMDhhYzQxN2ExNzI1YiIsInJvbGUiOiJBRE1JTiIsImlzQWN0aXZlIjp0cnVlLCJpYXQiOjE3NTMzNjU5MTEsImV4cCI6MTc1MzQ1MjMxMX0.T1BdWbbv8wUgP-6sRuD6JRBfyxuk_CxS5ZYC19l1yHo"
+					}
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": "localhost:2000/api/admin/id/687f94de30c6778b80fba0d1"
+			},
+			"response": []
+		},
+		{
+			"name": "createAdmin",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n      \"username\": \"Shuxrat\",\n      \"email\": \"shuxrat@gmail.com\",\n      \"password\": \"Shuxrat1234!\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "localhost:2000/api/admin"
+			},
+			"response": []
+		},
+		{
+			"name": "signin_admin",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n      \"username\": \"Shuxrat\",\n      \"password\": \"Shuxrat1234!\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "localhost:2000/api/admin/signin"
+			},
+			"response": []
+		},
+		{
+			"name": "token_generate",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": {
+						"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4ODI0ZDQzNzQ1Y2Q0YjdjMDMwYzA2ZCIsInJvbGUiOiJBRE1JTiIsImlzQWN0aXZlIjp0cnVlLCJpYXQiOjE3NTMzNjk5NTAsImV4cCI6MTc1MzQ1NjM1MH0.1IVGo7___g7uKBCxYFwwBO12NyNcc4Jz9i6CfLJCLDU"
+					}
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Cookie",
+						"value": "",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n      \n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "localhost:2000/api/admin/token"
+			},
+			"response": []
+		},
+		{
+			"name": "signout",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": {
+						"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4ODIzMjhiZTNlMDhhYzQxN2ExNzI1YiIsInJvbGUiOiJBRE1JTiIsImlzQWN0aXZlIjp0cnVlLCJpYXQiOjE3NTMzNjU5MTEsImV4cCI6MTc1MzQ1MjMxMX0.T1BdWbbv8wUgP-6sRuD6JRBfyxuk_CxS5ZYC19l1yHo"
+					}
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "localhost:2000/api/admin/signout"
+			},
+			"response": []
+		}
+	]
+}
