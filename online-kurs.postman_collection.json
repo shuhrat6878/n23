@@ -306,6 +306,51 @@
 				}
 			},
 			"response": []
+		},
+		{
+			"name": "ustozni-databazasidagi-malumot",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4ODA2N2I5YjQ0ZDljMWU3ZDkzZjAxZiIsInJvbGUiOiJTVVBFUkFETUlOIiwiaXNBY3RpdmUiOnRydWUsImlhdCI6MTc1MzQyMzI5MSwiZXhwIjoxNzUzNTA5NjkxfQ.mbrlefqn4MxhOuLp_TWpq5pmO-W84BHdecBzsoc9iZo",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://10.10.2.94:2000/api/admin",
+					"protocol": "http",
+					"host": [
+						"10",
+						"10",
+						"2",
+						"94"
+					],
+					"port": "2000",
+					"path": [
+						"api",
+						"admin"
+					]
+				}
+			},
+			"response": []
 		}
 	]
 }
