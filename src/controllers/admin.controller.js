@@ -12,14 +12,6 @@ class AdminController extends BaseController{
 
     async createAdmin (req,res){
         try {
-            const { error} = validator.create(req.body);
-            if(error){
-                return res.status(422).json({
-                    statusCode:422,
-                    message: error?.details[0]?.message ?? "eror input validation"
-                });
-                
-            }
             const {username, email, password} =req.body;
             const exituUername = await Admin.findOne({username});
             if(exituUername){
@@ -50,7 +42,7 @@ class AdminController extends BaseController{
         } catch (error) {
             return res.status(500).json({
                 statusCode: 500,
-                message:error.message || "internall server error"
+                message:error || "internall server error"
             });
         }
     }
@@ -58,13 +50,6 @@ class AdminController extends BaseController{
     
     async signIn(req,res){
         try {
-            const { error} = validator.signin(req.body);
-            if(error){
-                return res.status(422).join({
-                    statusCode:422,
-                    message: error?.details[0]?.message ?? "error input validation"
-                });
-            }
             const {username, password} = req.body;
             const admin = await Admin.findOne({username});
             const isMatchPassword = await crypto.decrypt(password, admin?.hashedPassword ?? '');
@@ -100,14 +85,13 @@ class AdminController extends BaseController{
     async generateNewToken(req, res) {
         try {
             const refreshToken = req.cookies?.refreshTokenAdmin;
-            console.log(refreshToken)
             if (!refreshToken) {
                 return res.status(401).json({
                     statusCode: 401,
                     message: 'Refresh token not found'
                 });
             }
-            const verifiedToken=token.verifyToken(refreshToken,config.TOKEN.REFRESH_TOKEN_KEY);
+            const verifiedToken=token.verifyToken(refreshToken,config.TOKEN.REFRESH_KEY);
             
             if (!verifiedToken) {
                 return res.status(401).json({
@@ -152,7 +136,7 @@ class AdminController extends BaseController{
                     message: 'Refresh token not found'
                 });
             }
-            const verifiedToken = token.verifyToken(refreshToken, config.TOKEN.REFRESH_TOKEN_KEY);
+            const verifiedToken = token.verifyToken(refreshToken, config.TOKEN.REFRESH_KEY);
             if (!verifiedToken) {
                 return res.status(401).json({
                     statusCode: 401,

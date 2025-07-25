@@ -3,16 +3,16 @@ import jwt from "jsonwebtoken";
 
 
 
-class Tokken {
+class Token {
     generateAccesToken(payload){
-        return jwt.sign(payload, config.TOKEN.ACCESS_TOKEN_KEY,{
-            expiresIn: config.TOKEN.ACCESS_TOKEN_TIME
+        return jwt.sign(payload, config.TOKEN.ACCESS_KEY,{
+            expiresIn: config.TOKEN.ACCESS_TIME
         });
     }
 
     generateRefreshToken(payload){
-        return jwt.sign(payload, config.TOKEN.REFRESH_TOKEN_KEY,{
-            expiresIn: config.TOKEN.REFRESH_TOKEN_TIME
+        return jwt.sign(payload, config.TOKEN.REFRESH_KEY,{
+            expiresIn: config.TOKEN.REFRESH_TIME
         });
     }
 
@@ -29,4 +29,4 @@ class Tokken {
     }
 }
 
-export default new Tokken();
+export default new Token();
