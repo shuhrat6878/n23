@@ -20,6 +20,9 @@ router
     .get('/id/:id',AuthGuard,RolesGuard('SUPPERADMIN','ID'),controller.findById)
     
     .patch('password/:id',AuthGuard,RolesGuard('SUPPERADMIN','ID'),validate(AdminValidation.password),controller.updatePasswordForAdmin)
+    .patch('/forget-password',validate(AdminValidation.forgetPassword),controller.forgetPassword)
+    .patch('/confirm-otp', validate(AdminValidation.confirmOTP), controller.confirmOTP)
+    .patch('/confirm-password', validate(AdminValidation.confirmPassword), controller.confirmPassword)
     .patch('/:id',AuthGuard,RolesGuard('SUPPERADMIN','ID'),validate(AdminValidation.update),controller.updateAdmin)
     .delete('/:id',AuthGuard,RolesGuard('SUPPERADMIN'),controller.delete)
 

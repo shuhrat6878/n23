@@ -1,0 +1,194 @@
+{
+	"info": {
+		"_postman_id": "221d7e0f-9910-49f2-8348-c490829ba5d0",
+		"name": "online-kurs",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "41773954"
+	},
+	"item": [
+		{
+			"name": "createAdmin",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4ODJmZDkyZThkNjljNDgzNmI5MmM0YSIsInJvbGUiOiJTVVBQRVJBRE1JTiIsImlzQWN0aXZlIjp0cnVlLCJpYXQiOjE3NTM0MTUxNDAsImV4cCI6MTc1MzUwMTU0MH0.ObpHofJ9kSzpMsv3nnzDkTGtsZ_RhW65mv0f3akDM_c",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n      \"username\": \"Samandar2\",\n      \"password\": \"Saman123!\",\n      \"email\": \"Saman@gmai112l.com\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:2000/api/admin",
+					"host": [
+						"localhost"
+					],
+					"port": "2000",
+					"path": [
+						"api",
+						"admin"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "signin_admin",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n      \"username\": \"Shuxrat\",\n      \"password\": \"Shuxrat1234!\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:2000/api/admin/signin",
+					"host": [
+						"localhost"
+					],
+					"port": "2000",
+					"path": [
+						"api",
+						"admin",
+						"signin"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "forget pasword",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4ODJmZDkyZThkNjljNDgzNmI5MmM0YSIsInJvbGUiOiJTVVBQRVJBRE1JTiIsImlzQWN0aXZlIjp0cnVlLCJpYXQiOjE3NTM3NTkzNzQsImV4cCI6MTc1Mzg0NTc3NH0.pDBCv-adGuffWVEODzuvM_isXeqWDYZvl04f1E0BsUg",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n      \"email\":\"abbosovich1999@gmail.com\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:2000/api/admin/forget-password",
+					"host": [
+						"localhost"
+					],
+					"port": "2000",
+					"path": [
+						"api",
+						"admin",
+						"forget-password"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "confirm otp",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4ODJmZDkyZThkNjljNDgzNmI5MmM0YSIsInJvbGUiOiJTVVBQRVJBRE1JTiIsImlzQWN0aXZlIjp0cnVlLCJpYXQiOjE3NTM3NTkzNzQsImV4cCI6MTc1Mzg0NTc3NH0.pDBCv-adGuffWVEODzuvM_isXeqWDYZvl04f1E0BsUg",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n      \"email\":\"abbosovich1999@gmail.com\",\n      \"otp\":\"214608\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:2000/api/admin/confirm-otp",
+					"host": [
+						"localhost"
+					],
+					"port": "2000",
+					"path": [
+						"api",
+						"admin",
+						"confirm-otp"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "confirm pasvord",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4ODJmZDkyZThkNjljNDgzNmI5MmM0YSIsInJvbGUiOiJTVVBQRVJBRE1JTiIsImlzQWN0aXZlIjp0cnVlLCJpYXQiOjE3NTM3NTkzNzQsImV4cCI6MTc1Mzg0NTc3NH0.pDBCv-adGuffWVEODzuvM_isXeqWDYZvl04f1E0BsUg",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n      \"email\":\"abbosovich1999@gmail.com\",\n      \"newPassword\":\"Shuhrat123!\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:2000/api/admin/confirm-password",
+					"host": [
+						"localhost"
+					],
+					"port": "2000",
+					"path": [
+						"api",
+						"admin",
+						"confirm-password"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
