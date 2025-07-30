@@ -4,8 +4,9 @@ import { successRes } from "../utils/success-res.js";
 
 
 export class BaseController {
-    constructor(model){
+    constructor(model,populateFields = []){
         this.model = model;
+        this.populateFields = populateFields;
     };
      create = async (req,res,next)=>{
         try {
@@ -19,7 +20,12 @@ export class BaseController {
 
      findAll  =async (_,res,next)=>{
         try {
-            const data = await this.model.find();
+            let data = await this.model.find();
+            if (this.populateFields.length){
+                for (let populateField of this.populateFields){
+                    data = data.populate(this.populateFields)
+                }
+            };
             return successRes(res,data);
         } catch (error) {
             next(error);
@@ -30,6 +36,11 @@ export class BaseController {
         try {
             const id = req.params?.id;
             const data = await this.checkById(id);
+            if (this.populateFields.length){
+                for (let populateField of this.populateFields){
+                    data = data.populate(this.populateFields)
+                }
+            };
             return successRes(res,data);
             
         } catch (error) {
