@@ -3,6 +3,7 @@ import Admin from "../models/admin.model.js";
 import { connectDB } from "../db/index.js";
 import { disconnect } from "mongoose";
 import config from "../config/index.js"
+import { Roles } from "../const/index.js";
 
 
 (async function () {
@@ -15,7 +16,7 @@ import config from "../config/index.js"
                 username: config.SUPERADMIN.USERNAME,
                 email: config.SUPERADMIN.EMAIL,
                 hashedPassword,
-                role:"SUPPERADMIN"
+                role:Roles.SUPPERADMIN
             });
             console.log("super admin create success");
             await disconnect()
