@@ -6,7 +6,6 @@ const SallerSchema = new Schema({
     fullName: { type: String, required: true },
     email: { type: String, unique: true, required: true },
     hashedPassword: { type: String, required: true },
-    isActive: { type: Boolean, default: true },
     isActive: { type: Boolean, default: false },
     wallet: { type: Number, default: 0 },
     image: { type: String },

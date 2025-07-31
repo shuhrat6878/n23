@@ -5,15 +5,25 @@ import router from "./routes/index.route.js";
 import cookieParser from "cookie-parser";
 import { globalErrorHandle } from "./error/global-error-handle.js";
 import helmet from "helmet";
+import { join } from 'path';
+import cors from 'cors';
 
 
 
 const app  = express();
 const PORT = config.PORT ||2000;
 
+app.use(cors({
+    origin: '*'
+}));
+
 app.use(helmet());
+
 app.use(express.json());
+
 app.use(cookieParser());
+
+app.use('/api/uploads', express.static(join(process.cwd(), '../uploads')));
 
 
 await connectDB();
