@@ -8,7 +8,7 @@ import config from '../config/index.js';
 
 class SallerController extends BaseController {
     constructor() {
-        super(Saller);
+        super(Saller,['products']);
     }
 
     async createSaller(req, res, next) {
