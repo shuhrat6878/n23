@@ -1,0 +1,427 @@
+{
+	"info": {
+		"_postman_id": "221d7e0f-9910-49f2-8348-c490829ba5d0",
+		"name": "online-kurs",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "41773954"
+	},
+	"item": [
+		{
+			"name": "signin_admin",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n      \"username\": \"Shuhrat\",\n      \"password\": \"Shuhrat12345!\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:2000/api/admin/signin",
+					"host": [
+						"localhost"
+					],
+					"port": "2000",
+					"path": [
+						"api",
+						"admin",
+						"signin"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "saler create",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4ODJmZDkyZThkNjljNDgzNmI5MmM0YSIsInJvbGUiOiJTVVBQRVJBRE1JTiIsImlzQWN0aXZlIjp0cnVlLCJpYXQiOjE3NTM3NTkzNzQsImV4cCI6MTc1Mzg0NTc3NH0.pDBCv-adGuffWVEODzuvM_isXeqWDYZvl04f1E0BsUg",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "phoneNumber",
+							"value": "+998944116888",
+							"type": "text"
+						},
+						{
+							"key": "email",
+							"value": "toshmatjon2@gmail.com",
+							"type": "text"
+						},
+						{
+							"key": "adress",
+							"value": "buxoro",
+							"type": "text"
+						},
+						{
+							"key": "file",
+							"type": "file",
+							"src": "/home/shuxrat/Pictures/Screenshots/Screenshot from 2025-08-01 23-47-13.png"
+						},
+						{
+							"key": "fullName",
+							"value": "eshmatov Jasurr",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "Toshmatjon12345!",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost:2000/api/saller",
+					"host": [
+						"localhost"
+					],
+					"port": "2000",
+					"path": [
+						"api",
+						"saller"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "category create",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4ODJmZDkyZThkNjljNDgzNmI5MmM0YSIsInJvbGUiOiJTVVBQRVJBRE1JTiIsImlzQWN0aXZlIjp0cnVlLCJpYXQiOjE3NTM3NTkzNzQsImV4cCI6MTc1Mzg0NTc3NH0.pDBCv-adGuffWVEODzuvM_isXeqWDYZvl04f1E0BsUg",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "name",
+							"value": "TELEFON",
+							"type": "text"
+						},
+						{
+							"key": "file",
+							"type": "file",
+							"src": "/home/shuxrat/Pictures/Screenshots/Screenshot from 2025-08-01 23-47-13.png"
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost:2000/api/category",
+					"host": [
+						"localhost"
+					],
+					"port": "2000",
+					"path": [
+						"api",
+						"category"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "product create",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4ODJmZDkyZThkNjljNDgzNmI5MmM0YSIsInJvbGUiOiJTVVBQRVJBRE1JTiIsImlzQWN0aXZlIjp0cnVlLCJpYXQiOjE3NTM3NTkzNzQsImV4cCI6MTc1Mzg0NTc3NH0.pDBCv-adGuffWVEODzuvM_isXeqWDYZvl04f1E0BsUg",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n      \"name\": \"apple\",\n      \"price\":1000,\n      \"quantity\": 10,\n      \"description\": \"sifatli\",\n      \"categoryId\": \"688d0ece7a70b009c1f1de2d\",\n      \"sallerId\":\"688d0e157a70b009c1f1de2a\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:2000/api/product",
+					"host": [
+						"localhost"
+					],
+					"port": "2000",
+					"path": [
+						"api",
+						"product"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get all praduct ,category, saller",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4ODJmZDkyZThkNjljNDgzNmI5MmM0YSIsInJvbGUiOiJTVVBQRVJBRE1JTiIsImlzQWN0aXZlIjp0cnVlLCJpYXQiOjE3NTM3NTkzNzQsImV4cCI6MTc1Mzg0NTc3NH0.pDBCv-adGuffWVEODzuvM_isXeqWDYZvl04f1E0BsUg",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n      \"name\": \"apple\",\n      \"price\":1000,\n      \"quantity\": 10,\n      \"description\": \"sifatli\",\n      \"categoryId\": \"688d0ece7a70b009c1f1de2d\",\n      \"sallerId\":\"688d0e157a70b009c1f1de2a\"\n}"
+				},
+				"url": {
+					"raw": "localhost:2000/api/product",
+					"host": [
+						"localhost"
+					],
+					"port": "2000",
+					"path": [
+						"api",
+						"product"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "category get alllll",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4ODJmZDkyZThkNjljNDgzNmI5MmM0YSIsInJvbGUiOiJTVVBQRVJBRE1JTiIsImlzQWN0aXZlIjp0cnVlLCJpYXQiOjE3NTM3NTkzNzQsImV4cCI6MTc1Mzg0NTc3NH0.pDBCv-adGuffWVEODzuvM_isXeqWDYZvl04f1E0BsUg",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n      \"name\": \"apple\",\n      \"price\":1000,\n      \"quantity\": 10,\n      \"description\": \"sifatli\",\n      \"categoryId\": \"688d0ece7a70b009c1f1de2d\",\n      \"sallerId\":\"688d0e157a70b009c1f1de2a\"\n}"
+				},
+				"url": {
+					"raw": "localhost:2000/api/category",
+					"host": [
+						"localhost"
+					],
+					"port": "2000",
+					"path": [
+						"api",
+						"category"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "forgetpasford",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4ODJmZDkyZThkNjljNDgzNmI5MmM0YSIsInJvbGUiOiJTVVBQRVJBRE1JTiIsImlzQWN0aXZlIjp0cnVlLCJpYXQiOjE3NTM3NTkzNzQsImV4cCI6MTc1Mzg0NTc3NH0.pDBCv-adGuffWVEODzuvM_isXeqWDYZvl04f1E0BsUg",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n      \"email\": \"abbosovich1999@gmail.com\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:2000/api/admin/forget-password",
+					"host": [
+						"localhost"
+					],
+					"port": "2000",
+					"path": [
+						"api",
+						"admin",
+						"forget-password"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "confirm otp",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n      \"email\": \"abbosovich1999@gmail.com\",\n      \"otp\":\"155333\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:2000/api/admin/confirm-otp",
+					"host": [
+						"localhost"
+					],
+					"port": "2000",
+					"path": [
+						"api",
+						"admin",
+						"confirm-otp"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "New Request",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n      \"email\":\"abbosovich1999@gmail.com\",\n      \"newPassword\":\"Shuhrat12345!\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:2000/api/admin/confirm-password",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "2000",
+					"path": [
+						"api",
+						"admin",
+						"confirm-password"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get ADminlar",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4ODJmZDkyZThkNjljNDgzNmI5MmM0YSIsInJvbGUiOiJTVVBQRVJBRE1JTiIsImlzQWN0aXZlIjp0cnVlLCJpYXQiOjE3NTM5ODE3NTMsImV4cCI6MTc1NDA2ODE1M30.SzO1u90a8u-CPUmceueEeJ5T42iGmm4NL3Y7nAWx1_4",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n      \"username\": \"Shuhrat\",\n      \"password\": \"Shuhrat12345!\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:2000/api/admin/",
+					"host": [
+						"localhost"
+					],
+					"port": "2000",
+					"path": [
+						"api",
+						"admin",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "saler sigin in",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n      \"phoneNumber\": \"+998944106879\",\n      \"fullName\": \"toshmat Gishmatov\",\n      \"email\": \"toshm2at12@gmail.com\",\n      \"password\": \"Toshmat123!\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:2000/api/admin/saller/signin",
+					"host": [
+						"localhost"
+					],
+					"port": "2000",
+					"path": [
+						"api",
+						"admin",
+						"saller",
+						"signin"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
