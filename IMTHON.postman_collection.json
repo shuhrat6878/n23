@@ -1,0 +1,890 @@
+{
+	"info": {
+		"_postman_id": "bf1034a0-c55d-4bf5-ba63-df7e5e0d5d76",
+		"name": "IMTHON",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "41773954"
+	},
+	"item": [
+		{
+			"name": "ADMIN",
+			"item": [
+				{
+					"name": "sign in SUPERADMIN",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4ODJmZDkyZThkNjljNDgzNmI5MmM0YSIsInJvbGUiOiJTVVBQRVJBRE1JTiIsImlzQWN0aXZlIjp0cnVlLCJpYXQiOjE3NTM3NTkzNzQsImV4cCI6MTc1Mzg0NTc3NH0.pDBCv-adGuffWVEODzuvM_isXeqWDYZvl04f1E0BsUg",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n      \"username\": \"Shuhrat\",\n      \"password\": \"Shuhrat123!\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:2000/api/admin/signin",
+							"host": [
+								"localhost"
+							],
+							"port": "2000",
+							"path": [
+								"api",
+								"admin",
+								"signin"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "create ADMIN",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4OTViZTFmYTUzNWVhNGIxNGNiYTA2OCIsInJvbGUiOiJTVVBFUkFETUlOIiwiaXNBY3RpdmUiOnRydWUsImlhdCI6MTc1NDY0NDM1OCwiZXhwIjoxNzU0NzMwNzU4fQ.qGqcXELHeq1zOfUYxaz18oL6LgLnNqsPHRb08ZuTSqM",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n     \"username\": \"Aziz\",\n    \"email\": \"anorboyevshuhrat41@gmail.com\",\n    \"password\": \"Aziz123!\"\n     \n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:2000/api/admin",
+							"host": [
+								"localhost"
+							],
+							"port": "2000",
+							"path": [
+								"api",
+								"admin"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "SIGNIN ADMIN",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4OTViZTFmYTUzNWVhNGIxNGNiYTA2OCIsInJvbGUiOiJTVVBFUkFETUlOIiwiaXNBY3RpdmUiOnRydWUsImlhdCI6MTc1NDY0NDM1OCwiZXhwIjoxNzU0NzMwNzU4fQ.qGqcXELHeq1zOfUYxaz18oL6LgLnNqsPHRb08ZuTSqM",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n      \"username\": \"Aziz\",\n      \"password\": \"Aziz123!\"\n     \n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:2000/api/admin/signin",
+							"host": [
+								"localhost"
+							],
+							"port": "2000",
+							"path": [
+								"api",
+								"admin",
+								"signin"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Admin TOKKEN",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4ODJmZDkyZThkNjljNDgzNmI5MmM0YSIsInJvbGUiOiJTVVBQRVJBRE1JTiIsImlzQWN0aXZlIjp0cnVlLCJpYXQiOjE3NTM3NTkzNzQsImV4cCI6MTc1Mzg0NTc3NH0.pDBCv-adGuffWVEODzuvM_isXeqWDYZvl04f1E0BsUg",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n      \"username\": \"Shuhrat\",\n      \"password\": \"Shuhrat123!\"\n}"
+						},
+						"url": {
+							"raw": "localhost:2000/api/admin/token",
+							"host": [
+								"localhost"
+							],
+							"port": "2000",
+							"path": [
+								"api",
+								"admin",
+								"token"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Admin SIGNOUT",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4OTVkZjI3NGQyYjlmZTU5YzZhMTY5OSIsInJvbGUiOiJBRE1JTiIsImlzQWN0aXZlIjp0cnVlLCJpYXQiOjE3NTQ2NTQyMjYsImV4cCI6MTc1NDc0MDYyNn0.BcyBUO6468jfH4SqvGdsDBCwzIEch-9MIb3UT6greIo",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n      \"username\": \"Shuhrat\",\n      \"password\": \"Shuhrat123!\"\n}"
+						},
+						"url": {
+							"raw": "localhost:2000/api/admin/signout",
+							"host": [
+								"localhost"
+							],
+							"port": "2000",
+							"path": [
+								"api",
+								"admin",
+								"signout"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Admin GETALL",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4OTViZTFmYTUzNWVhNGIxNGNiYTA2OCIsInJvbGUiOiJTVVBFUkFETUlOIiwiaXNBY3RpdmUiOnRydWUsImlhdCI6MTc1NDY1NDQ3NiwiZXhwIjoxNzU0NzQwODc2fQ.fkfDASSVu2fh58Yb3-tDZUzuhQefJlFHRl8c5PuwHvM",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n      \"username\": \"Shuhrat\",\n      \"password\": \"Shuhrat123!\"\n}"
+						},
+						"url": {
+							"raw": "localhost:2000/api/admin",
+							"host": [
+								"localhost"
+							],
+							"port": "2000",
+							"path": [
+								"api",
+								"admin"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "UPDATE PASSWORD",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4OTViZTFmYTUzNWVhNGIxNGNiYTA2OCIsInJvbGUiOiJTVVBFUkFETUlOIiwiaXNBY3RpdmUiOnRydWUsImlhdCI6MTc1NDY1NDQ3NiwiZXhwIjoxNzU0NzQwODc2fQ.fkfDASSVu2fh58Yb3-tDZUzuhQefJlFHRl8c5PuwHvM",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n      \"oldPassword\": \"Aziz1234!\",\n      \"newPassword\": \"Aziz12345!\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:2000/api/admin/password/6895df274d2b9fe59c6a1699",
+							"host": [
+								"localhost"
+							],
+							"port": "2000",
+							"path": [
+								"api",
+								"admin",
+								"password",
+								"6895df274d2b9fe59c6a1699"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "FORGET-PASSWORD",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4OTViZTFmYTUzNWVhNGIxNGNiYTA2OCIsInJvbGUiOiJTVVBFUkFETUlOIiwiaXNBY3RpdmUiOnRydWUsImlhdCI6MTc1NDY1NDQ3NiwiZXhwIjoxNzU0NzQwODc2fQ.fkfDASSVu2fh58Yb3-tDZUzuhQefJlFHRl8c5PuwHvM",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n      \"email\": \"anorboyevshuhrat41@gmail.com\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:2000/api/admin/forget-password",
+							"host": [
+								"localhost"
+							],
+							"port": "2000",
+							"path": [
+								"api",
+								"admin",
+								"forget-password"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "confirm OTP",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4OTViZTFmYTUzNWVhNGIxNGNiYTA2OCIsInJvbGUiOiJTVVBFUkFETUlOIiwiaXNBY3RpdmUiOnRydWUsImlhdCI6MTc1NDY1NDQ3NiwiZXhwIjoxNzU0NzQwODc2fQ.fkfDASSVu2fh58Yb3-tDZUzuhQefJlFHRl8c5PuwHvM",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n     \"email\":\"anorboyevshuhrat41@gmail.com\",\n     \"otp\": \"311746\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:2000/api/admin/confirm-otp",
+							"host": [
+								"localhost"
+							],
+							"port": "2000",
+							"path": [
+								"api",
+								"admin",
+								"confirm-otp"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "confirm-password",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n      \"email\": \"anorboyevshuhrat41@gmail.com\",\n      \"newPassword\":\"Aziz12345!\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:2000/api/admin/confirm-password",
+							"host": [
+								"localhost"
+							],
+							"port": "2000",
+							"path": [
+								"api",
+								"admin",
+								"confirm-password"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4OTViZTFmYTUzNWVhNGIxNGNiYTA2OCIsInJvbGUiOiJTVVBFUkFETUlOIiwiaXNBY3RpdmUiOnRydWUsImlhdCI6MTc1NDY1NDQ3NiwiZXhwIjoxNzU0NzQwODc2fQ.fkfDASSVu2fh58Yb3-tDZUzuhQefJlFHRl8c5PuwHvM",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n     \"email\":\"anorboyevshuhrat41@gmail.com\",\n     \"otp\": \"311746\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:2000/api/admin/6895df274d2b9fe59c6a1699",
+							"host": [
+								"localhost"
+							],
+							"port": "2000",
+							"path": [
+								"api",
+								"admin",
+								"6895df274d2b9fe59c6a1699"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "SALLER",
+			"item": [
+				{
+					"name": "CREATE SALER",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4OTViZTFmYTUzNWVhNGIxNGNiYTA2OCIsInJvbGUiOiJTVVBFUkFETUlOIiwiaXNBY3RpdmUiOnRydWUsImlhdCI6MTc1NDY1NDQ3NiwiZXhwIjoxNzU0NzQwODc2fQ.fkfDASSVu2fh58Yb3-tDZUzuhQefJlFHRl8c5PuwHvM",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n      \"email\": \"abbosovich199@gmail.com\",\n      \"password\": \"Abbos123!\",\n      \"fullName\": \"Abbos Qochqorboyevv\",\n      \"userName\": \"Abbos54\",\n      \"wallet\": 545000\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:2000/api/saller",
+							"host": [
+								"localhost"
+							],
+							"port": "2000",
+							"path": [
+								"api",
+								"saller"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET SALLER",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4OTViZTFmYTUzNWVhNGIxNGNiYTA2OCIsInJvbGUiOiJTVVBFUkFETUlOIiwiaXNBY3RpdmUiOnRydWUsImlhdCI6MTc1NDY1NDQ3NiwiZXhwIjoxNzU0NzQwODc2fQ.fkfDASSVu2fh58Yb3-tDZUzuhQefJlFHRl8c5PuwHvM",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n      \"email\": \"anorboyevshuhrat41@gmail.com\"\n}"
+						},
+						"url": {
+							"raw": "localhost:2000/api/admin/saller",
+							"host": [
+								"localhost"
+							],
+							"port": "2000",
+							"path": [
+								"api",
+								"admin",
+								"saller"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "New Request",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "CLIENT",
+			"item": [
+				{
+					"name": "createCLIENT",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4OTViZTFmYTUzNWVhNGIxNGNiYTA2OCIsInJvbGUiOiJTVVBFUkFETUlOIiwiaXNBY3RpdmUiOnRydWUsImlhdCI6MTc1NDY1NDQ3NiwiZXhwIjoxNzU0NzQwODc2fQ.fkfDASSVu2fh58Yb3-tDZUzuhQefJlFHRl8c5PuwHvM",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n      \"phoneNumber\": \"+998944106878\",\n      \"email\": \"abbosovich1999@gmail.com\",\n      \"password\":\"Shuhrat123!\" ,\n      \"fullName\": \"Anoraliyev Mirohun\",\n      \"userName\": \"Mirohun55\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:2000/api/client",
+							"host": [
+								"localhost"
+							],
+							"port": "2000",
+							"path": [
+								"api",
+								"client"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get Client",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4OTViZTFmYTUzNWVhNGIxNGNiYTA2OCIsInJvbGUiOiJTVVBFUkFETUlOIiwiaXNBY3RpdmUiOnRydWUsImlhdCI6MTc1NDY1NDQ3NiwiZXhwIjoxNzU0NzQwODc2fQ.fkfDASSVu2fh58Yb3-tDZUzuhQefJlFHRl8c5PuwHvM",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n      \"status\": \"qabul qoilindi\",\n      \"courseId\":\"6890a304d4e2db1d3fa41942\",\n      \"clientId\":\"689410bab427fb904defb024\"\n}"
+						},
+						"url": {
+							"raw": "localhost:2000/api/client",
+							"host": [
+								"localhost"
+							],
+							"port": "2000",
+							"path": [
+								"api",
+								"client"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "CASHELOK",
+			"item": [
+				{
+					"name": "CREATE CASHELOK",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4ODJmZDkyZThkNjljNDgzNmI5MmM0YSIsInJvbGUiOiJTVVBQRVJBRE1JTiIsImlzQWN0aXZlIjp0cnVlLCJpYXQiOjE3NTM3NTkzNzQsImV4cCI6MTc1Mzg0NTc3NH0.pDBCv-adGuffWVEODzuvM_isXeqWDYZvl04f1E0BsUg",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n      \"cardNumber\": 123456789,\n      \"shot\":345000 ,\n      \"clientId\":\"6895feacd28539e4402c00e3\",\n      \"sallerId\":\"6895fcb5660146d1cd628fb7\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:2000/api/cashelok",
+							"host": [
+								"localhost"
+							],
+							"port": "2000",
+							"path": [
+								"api",
+								"cashelok"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET CASHELOK",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4ODJmZDkyZThkNjljNDgzNmI5MmM0YSIsInJvbGUiOiJTVVBQRVJBRE1JTiIsImlzQWN0aXZlIjp0cnVlLCJpYXQiOjE3NTM3NTkzNzQsImV4cCI6MTc1Mzg0NTc3NH0.pDBCv-adGuffWVEODzuvM_isXeqWDYZvl04f1E0BsUg",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n      \"cardNumber\": 123456789,\n      \"shot\":345000 ,\n      \"clientId\":\"6895feacd28539e4402c00e3\",\n      \"sallerId\":\"6895fcb5660146d1cd628fb7\"\n}"
+						},
+						"url": {
+							"raw": "localhost:2000/api/cashelok",
+							"host": [
+								"localhost"
+							],
+							"port": "2000",
+							"path": [
+								"api",
+								"cashelok"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "CATEGORY",
+			"item": [
+				{
+					"name": "CTREATE CATEGORY",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4ODJmZDkyZThkNjljNDgzNmI5MmM0YSIsInJvbGUiOiJTVVBQRVJBRE1JTiIsImlzQWN0aXZlIjp0cnVlLCJpYXQiOjE3NTM3NTkzNzQsImV4cCI6MTc1Mzg0NTc3NH0.pDBCv-adGuffWVEODzuvM_isXeqWDYZvl04f1E0BsUg",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n      \"name\": \"Lola\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:2000/api/category",
+							"host": [
+								"localhost"
+							],
+							"port": "2000",
+							"path": [
+								"api",
+								"category"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getCATEGORY",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4ODJmZDkyZThkNjljNDgzNmI5MmM0YSIsInJvbGUiOiJTVVBQRVJBRE1JTiIsImlzQWN0aXZlIjp0cnVlLCJpYXQiOjE3NTM3NTkzNzQsImV4cCI6MTc1Mzg0NTc3NH0.pDBCv-adGuffWVEODzuvM_isXeqWDYZvl04f1E0BsUg",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n      \"name\": \"Lola\"\n}"
+						},
+						"url": {
+							"raw": "localhost:2000/api/category",
+							"host": [
+								"localhost"
+							],
+							"port": "2000",
+							"path": [
+								"api",
+								"category"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "PRODUCT",
+			"item": [
+				{
+					"name": "PRODUCT CREATE",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4ODJmZDkyZThkNjljNDgzNmI5MmM0YSIsInJvbGUiOiJTVVBQRVJBRE1JTiIsImlzQWN0aXZlIjp0cnVlLCJpYXQiOjE3NTM3NTkzNzQsImV4cCI6MTc1Mzg0NTc3NH0.pDBCv-adGuffWVEODzuvM_isXeqWDYZvl04f1E0BsUg",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n      \"name\": \"ATIRGUL\",\n    \"description\":\"HUSHBOY\",\n    \"color\":\"OQ\",\n    \"price\":4000,\n    \"quantity\": 3,\n    \"sallerId\": \"6895fcb5660146d1cd628fb7\",\n    \"categoryId\":\"6896068fd092b80789852a26\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:2000/api/product",
+							"host": [
+								"localhost"
+							],
+							"port": "2000",
+							"path": [
+								"api",
+								"product"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET PRODUCT",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "ORDER",
+			"item": [
+				{
+					"name": "ORDER CREATE",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4ODJmZDkyZThkNjljNDgzNmI5MmM0YSIsInJvbGUiOiJTVVBQRVJBRE1JTiIsImlzQWN0aXZlIjp0cnVlLCJpYXQiOjE3NTM3NTkzNzQsImV4cCI6MTc1Mzg0NTc3NH0.pDBCv-adGuffWVEODzuvM_isXeqWDYZvl04f1E0BsUg",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n      \"quantity\":2,\n      \"totalPrice\":12000 ,\n      \"clientId\":\"6895feacd28539e4402c00e3\",\n      \"productId\":\"68960a2e4fce8252dcd513c4\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:2000/api/order",
+							"host": [
+								"localhost"
+							],
+							"port": "2000",
+							"path": [
+								"api",
+								"order"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET PRODUCT",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "DASTAFKA",
+			"item": [
+				{
+					"name": "CREATE DASTAFKA",
+					"request": {
+						"method": "POST",
+						"header": []
+					},
+					"response": []
+				},
+				{
+					"name": "GET DASTAFKA",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "IMAGE",
+			"item": [
+				{
+					"name": "GET IMAGE",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "CREATE IMAGE",
+			"request": {
+				"method": "POST",
+				"header": []
+			},
+			"response": []
+		}
+	]
+}

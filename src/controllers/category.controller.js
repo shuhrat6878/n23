@@ -6,22 +6,20 @@ import { BaseController } from "./base.controller.js";
 
 class CategoryController extends BaseController {
     constructor() {
-        super(Category, ['products']);
+        super(Category );
     }
 
     async createCategory(req, res, next) {
 
         try {
             const { name } = req.body;
+
             const existsCategory = await Category.findOne({ name });
 
             if (existsCategory) {
-                throw new AppError('Category already exists', 409);
+                throw new AppError('Category nomi oldin ishlatilgan', 409);
             }
-            const category = await Category.create({
-                name,
-                image: req?.file?.filename ?? ''
-            });
+            const category = await Category.create(req.body);
             return successRes(res, category, 201);
         } catch (error) {
             next(error);

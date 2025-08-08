@@ -1,8 +1,9 @@
-import Product from "../models/product.model.js"
 import { BaseController} from "./base.controller.js"
 import Category from "../models/category.model.js";
-import Saller from "../models/saller.model.js"
 import { successRes } from "../utils/success-res.js";
+import Saller from "../models/saller.model.js";
+import Product from "../models/product.model.js";
+
 
 
 class  ProductController extends BaseController{
@@ -15,6 +16,7 @@ class  ProductController extends BaseController{
             const {categoryId,sallerId}= req.body;
             await BaseController.checkById(Category,categoryId);
             await BaseController.checkById(Saller, sallerId);
+
             const product = await Product.create(req.body);
             return successRes(res, product,201);
         } catch (error) {

@@ -1,43 +1,42 @@
-import Saller from '../models/saller.model.js';
-import { BaseController } from './base.controller.js';
+import Client from "../models/client.model.js";
+import { BaseController } from "./base.controller.js";
 import crypto from '../utils/Crypto.js';
 import { AppError } from '../error/AppError.js';
 import { successRes } from '../utils/success-res.js';
 import token from '../utils/Token.js';
-import config from '../config/index.js'
-import { generateOTP} from '../utils/generate-otp.js';
+import config from '../config/index.js';
+import { generateOTP } from '../utils/generate-otp.js';
 import { sendOTPToMail } from '../utils/send-mail.js';
 import Redis from '../utils/Redis.js';
 
-class SallerController extends BaseController {
+
+
+class ClientController extends BaseController {
     constructor() {
-        super(Saller, ['courses']);
+        super(Client)
     }
-
-    async createSaller(req, res, next) {
+    async createClient(req, res, next) {
         try {
-            const { userName, email, password } = req.body;
-            const exsistUserName = await Saller.findOne({ userName });
-            if (exsistUserName) {
-                throw new AppError("bu usename band boshqa kritig", 409)
+            const { phoneNumber, email, password } = req.body;
+            const existsPhone = await Client.findOne({ phoneNumber });
+            if (existsPhone) {
+                throw new AppError('PhoneNumber allaqachon mavjud', 409);
             }
-
-            const existsEmail = await Saller.findOne({ email });
+            const existsEmail = await Client.findOne({ email });
             if (existsEmail) {
-                throw new AppError('Email address allaqachon mavjud', 409);
+                throw new AppError('Email allaqachon mavjud', 409);
             }
             const hashedPassword = await crypto.encrypt(password);
             delete req.body.password;
-            const wallet= req.body.wallet ?? 0;
-
-            const saller = await Saller.create({
+            const wallet  = req.body.wallet ?? 0;
+            const client = await Client.create({
                 ...req.body,
                 hashedPassword,
-                isActive:wallet>0,
-                wallet:wallet,
+                isActive: wallet>0,
+                wallet: wallet,
                 image: req?.file?.filename ?? ''
             });
-            return successRes(res, saller, 201);
+            return successRes(res, client, 201);
         } catch (error) {
             next(error);
         }
@@ -45,21 +44,21 @@ class SallerController extends BaseController {
 
     async signIn(req, res, next) {
         try {
-            const { userName, password } = req.body;
-            const saller = await Saller.findOne({ userName });
-            const isMatchPassword = await crypto.decrypt(password, saller?.hashedPassword ?? '');
+            const { phoneNumber, password } = req.body;
+            const client = await Client.findOne({ phoneNumber });
+            const isMatchPassword = await crypto.decrypt(password, client?.hashedPassword ?? '');
             if (!isMatchPassword) {
                 throw new AppError('Phone number yoki password xato', 400);
             }
             const payload = {
-                id: saller._id, role: saller.role, isActive: saller.isActive
+                id: client._id, role: client.role, isActive: client.isActive
             };
             const accessToken = token.generateAccessToken(payload);
             const refreshToken = token.generateRefreshToken(payload);
-            token.writeToCookie(res, 'refreshTokenSaller', refreshToken, 30);
+            token.writeToCookie(res, 'refreshTokenClient', refreshToken, 30);
             return successRes(res, {
                 token: accessToken,
-                saller
+                client
             });
         } catch (error) {
             next(error);
@@ -68,7 +67,7 @@ class SallerController extends BaseController {
 
     async generateNewToken(req, res, next) {
         try {
-            const refreshToken = req.cookies?.refreshTokenSaller;
+            const refreshToken = req.cookies?.refreshTokenClient;
             if (!refreshToken) {
                 throw new AppError('Authorization error', 401);
             }
@@ -76,12 +75,12 @@ class SallerController extends BaseController {
             if (!verifiedToken) {
                 throw new AppError('Refresh token expire', 401);
             }
-            const saller = await Saller.findById(verifiedToken?.id);
-            if (!saller) {
-                throw new AppError('Forbidden user', 403);
+            const client = await Client.findById(verifiedToken?.id);
+            if (!client) {
+                throw new AppError('Forbidden user || ruxsat etilmagan foydalanuvchi', 403);
             }
             const paylod = {
-                id: saller._id, role: saller.role, isActive: saller.isActive
+                id: client._id, role: client.role, isActive: client.isActive
             }
             const accessToken = token.generateAccessToken(paylod);
             return successRes(res, {
@@ -94,7 +93,7 @@ class SallerController extends BaseController {
 
     async signOut(req, res, next) {
         try {
-            const refreshToken = req.cookies?.refreshTokenSaller;
+            const refreshToken = req.cookies?.refreshTokenClient;
             if (!refreshToken) {
                 throw new AppError('Refresh token not found', 401);
             }
@@ -102,62 +101,61 @@ class SallerController extends BaseController {
             if (!verifiedToken) {
                 throw new AppError('Refresh token expire', 401);
             }
-            const saller = await Saller.findById(verifiedToken?.id);
-            if (!owner) {
-                throw new AppError('Forbidden user', 403);
+            const client = await Client.findById(verifiedToken?.id);
+            if (!client) {
+                throw new AppError('Forbidden user || ruxsati yoq foydalanuvchi', 403);
             }
-            res.clearCookie('refreshTokenSaller');
+            res.clearCookie('refreshTokenClient');
             return successRes(res, {});
         } catch (error) {
             next(error);
         }
     }
-
-    async updateSaller(req, res, next) {
+    async updateClient(req, res, next) {
         try {
             const id = req.params.id;
-            const saller = await BaseController.checkById(Saller, id);
+            const client = await BaseController.checkById(Client, id);
             const { userName, password, email } = req.body;
             if (userName) {
-                const exsist = await Saller.findOne({ userName });
+                const exsist = await Client.findOne({ userName });
                 if (exsist) {
                     throw new AppError("userName arlery exsist", 409)
                 }
             }
 
             if (email) {
-                const exsist = await Saller.findOne({ email });
+                const exsist = await Client.findOne({ email });
                 if (exsist) {
                     throw new AppError("email arlery exsist", 409)
                 }
             }
 
-            let hashedPassword = saller.hashedPassword;
+            let hashedPassword = client.hashedPassword;
             if (password) {
-                if (req?.user.role != saller.role) {
-                    throw new AppError("not access chenge for admin or ega", 403)
+                if (req?.user.role != client.role) {
+                    throw new AppError("not access chenge for admin or client", 403)
                 }
                 hashedPassword = await crypto.encrypt(password);
                 delete req.body.password
             };
-            const updateSaler = await Saller.findByIdAndUpdate(id, { ...req.body, hashedPassword }, { new: true });
-            return successRes(res, updateSaler)
+            const updateClient = await Client.findByIdAndUpdate(id, { ...req.body, hashedPassword }, { new: true });
+            return successRes(res, updateClient)
         } catch (error) {
             next(error)
         }
     }
 
-    async updatePassword(req, res, next) {
+    async updatePasswordClient(req, res, next) {
         try {
             const id = req.params.id;
             const { oldPassword, newPassword } = req.body;
-            const saller = await BaseController.checkById(Saller, id);
-            const isMatedPassword = await crypto.decrypt(oldPassword, saller.hashedPassword)
+            const client = await BaseController.checkById(Client, id);
+            const isMatedPassword = await crypto.decrypt(oldPassword, client.hashedPassword)
             if (!isMatedPassword) {
                 throw new AppError("incorect old password", 400)
             }
             const hashedPassword = await crypto.encrypt(newPassword);
-            const updatePassword = await Saller.findByIdAndUpdate(id, { hashedPassword }, { new: true });
+            const updatePassword = await Client.findByIdAndUpdate(id, { hashedPassword }, { new: true });
             return successRes(res, updatePassword)
         } catch (error) {
             next(error)
@@ -167,8 +165,8 @@ class SallerController extends BaseController {
     async forgetPassword(req, res, next) {
         try {
             const { email } = req.body;
-            const saller = await Saller.findOne({ email })
-            if (!saller) {
+            const client = await Client.findOne({ email })
+            if (!client) {
                 throw new AppError("email not found")
             }
             const otp = generateOTP();
@@ -206,20 +204,19 @@ class SallerController extends BaseController {
     async confirmPassword(req, res, next) {
         try {
             const { email, newPassword } = req.body;
-            const saller = await Saller.findOne({ email });
-            if (!saller) {
+            const client = await Client.findOne({ email });
+            if (!client) {
                 throw new AppError("bunday foydalanuchi topilmadi", 404)
             }
 
             const hashedPassword = await crypto.encrypt(newPassword);
-            const updatePassword = await Saller.findByIdAndUpdate(saller._id, { hashedPassword }, { new: true });
+            const updatePassword = await Client.findByIdAndUpdate(client._id, { hashedPassword }, { new: true });
             return successRes(res, updatePassword);
         } catch (error) {
             next(error)
         }
     }
 
-
 }
 
-export default new SallerController();
+export default new ClientController();

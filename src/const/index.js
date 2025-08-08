@@ -1,5 +1,8 @@
 export const Roles = {
     SUPERADMIN: 'SUPERADMIN',
     ADMIN: 'ADMIN',
-    SALLER: 'SALLER'
+    SALLER: 'SALLER',
+    CLIENT: 'CLIENT'
 };
+
+export * from "./file.constant.js";

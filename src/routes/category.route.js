@@ -5,7 +5,7 @@ import { uploadFile } from '../middlewares/file-upload.js';
 const router = Router();
 
 router
-    .post('/', uploadFile.single('file'), controller.createCategory)
+    .post('/', controller.createCategory)
     .get('/', controller.findAll)
     .get('/:id', controller.findById)
 

@@ -2,6 +2,7 @@ import { isValidObjectId } from "mongoose";
 import { AppError } from '../error/AppError.js';
 import { successRes } from '../utils/success-res.js';
 
+
 export class BaseController {
     constructor(model, populateFields = []) {
         this.model = model;
@@ -19,6 +20,7 @@ export class BaseController {
 
     findAll = async (_, res, next) => {
         try {
+            
             const fields = this.populateFields;
             let query = this.model.find();
             if (fields?.length) {
@@ -76,7 +78,9 @@ export class BaseController {
     }
 
     static async checkById(schema, id) {
+        
         if (!isValidObjectId(id)) {
+
             throw new AppError('Invalid object id', 400);
         }
         const data = await schema.findById(id);

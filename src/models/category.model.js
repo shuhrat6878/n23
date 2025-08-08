@@ -2,7 +2,6 @@ import { Schema, model } from "mongoose";
 
 const CategorySchema = new Schema({
     name: { type: String, required: true, unique: true },
-    image: { type: String }
 }, {
     timestamps: true,
     versionKey: false,
@@ -15,7 +14,7 @@ const CategorySchema = new Schema({
     }
 });
 
-CategorySchema.virtual('products', {
+CategorySchema.virtual('productlar', {
     ref: 'Product',
     localField: '_id',
     foreignField: 'categoryId'

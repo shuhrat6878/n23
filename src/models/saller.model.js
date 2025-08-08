@@ -2,14 +2,12 @@ import { Schema, model } from "mongoose";
 import { Roles } from "../const/index.js";
 
 const SallerSchema = new Schema({
-    phoneNumber: { type: String, unique: true, required: true },
+    userName: { type: String, required: true },
     fullName: { type: String, required: true },
     email: { type: String, unique: true, required: true },
     hashedPassword: { type: String, required: true },
     isActive: { type: Boolean, default: false },
     wallet: { type: Number, default: 0 },
-    image: { type: String },
-    address: { type: String },
     role: { type: String, default: Roles.SALLER },
 }, {
     timestamps: true,
@@ -23,7 +21,7 @@ const SallerSchema = new Schema({
     }
 });
 
-SallerSchema.virtual('products', {
+SallerSchema.virtual('producs', {
     ref: 'Product',
     localField: '_id',
     foreignField: 'sallerId'

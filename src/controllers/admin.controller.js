@@ -39,6 +39,7 @@ class AdminController extends BaseController {
 
     async signIn(req, res, next) {
         try {
+            
             const { username, password } = req.body;
             const admin = await Admin.findOne({ username });
             const isMatchPassword = await crypto.decrypt(password, admin?.hashedPassword ?? '');

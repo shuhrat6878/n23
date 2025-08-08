@@ -1,11 +1,11 @@
 import { Router } from "express";
-import controller from "../controllers/praduc.controller.js";
+import controller from "../controllers/dastafka.controller.js";
 
 const router = Router();
 
 router
 
-    .post('/',controller.createProduct)
+    .post('/',controller.createDastafka)
     .get('/',controller.findAll)
     .get('/:id', controller.findById)
     .patch('/:id', controller.update)

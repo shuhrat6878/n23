@@ -1,42 +1,42 @@
 import Joi from "joi";
 
-class SallerValidation {
+class ClientValidation {
     static passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
+    static phoneRegex = /^(\+?[1-9]\d{0,3})?[-.\s]?(\(?[1-9]\d{0,4}\)?)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{0,9}$/;
 
     create() {
         return Joi.object({
+            phoneNumber: Joi.string().pattern(ClientValidation.phoneRegex).required(),
             email: Joi.string().email().required(),
-            password: Joi.string().pattern(SallerValidation.passwordRegex).required(),
+            password: Joi.string().pattern(ClientValidation.passwordRegex).required(),
             fullName: Joi.string().required(),
-            userName: Joi.string().required(),
-            wallet:Joi.number().optional(),
-            isActive: Joi.boolean().optional(),
+            userName: Joi.string().optional(),
         });
     }
 
     signin() {
         return Joi.object({
-            userName: Joi.string().required(),
+            phoneNumber: Joi.string().required(),
             password: Joi.string().required()
         });
     }
 
     update() {
         return Joi.object({
+            phoneNumber: Joi.string().pattern(ClientValidation.phoneRegex).optional(),
             email: Joi.string().email().optional(),
-            password: Joi.string().pattern(SallerValidation.passwordRegex).optional(),
+            password: Joi.string().pattern(ClientValidation.passwordRegex).optional(),
             fullName: Joi.string().optional(),
-            address: Joi.string().optional(),
-            isActive: Joi.boolean().optional(),
             userName: Joi.string().optional()
+
         });
     }
-
     
+
     password() {
         return Joi.object({
             oldPassword: Joi.string().required(),
-            newPassword: Joi.string().pattern(SallerValidation.passwordRegex).required()
+            newPassword: Joi.string().pattern(ClientValidation.passwordRegex).required()
         });
     }
 
@@ -56,11 +56,11 @@ class SallerValidation {
     confirmPassword() {
         return Joi.object({
             email: Joi.string().email().required(),
-            newPassword: Joi.string().pattern(SallerValidation.passwordRegex).required()
+            newPassword: Joi.string().pattern(ClientValidation.passwordRegex).required()
         });
     }
 
-    
+
 }
 
-export default new SallerValidation();
+export default new ClientValidation();
