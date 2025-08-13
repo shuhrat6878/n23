@@ -1,0 +1,442 @@
+{
+	"info": {
+		"_postman_id": "13e3054f-96a9-48b1-a25f-967a65c37d23",
+		"name": "3 ta table",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "41850885"
+	},
+	"item": [
+		{
+			"name": "user",
+			"item": [
+				{
+					"name": "create",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"fullname\":\"shuhratAnorboev\",\n    \"email\":\"abbosovich1999@gmaail.com\",\n    \"age\":25,\n    \"city_id\":\"1\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/users",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getAll",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"fullname\":\"SHuhrat anorboyev\",\n    \"email\":\"shuihrat199@gmaail.com\",\n    \"age\":24\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/users",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getId",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"fullname\":\"SHuhrat anorboyev\",\n    \"email\":\"shuihrat198@gmaail.com\",\n    \"age\":24\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/users/3",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"users",
+								"3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"age\":25\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/users/3",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"users",
+								"3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"age\":25\n}"
+						},
+						"url": {
+							"raw": "localhost:3000/users/4",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"users",
+								"4"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "city",
+			"item": [
+				{
+					"name": "create",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\":\"Andijo\",\n    \"country_id\":\"1\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/city",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"city"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getAll",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/city",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"city"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getId",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/city/1",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"city",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\":\"Andijon\",\n    \"country_id\":\"1\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/city/6",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"city",
+								"6"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n   \n}"
+						},
+						"url": {
+							"raw": "localhost:3000/city/2",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"city",
+								"2"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "country",
+			"item": [
+				{
+					"name": "create",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"nomi\":\"Samarqand\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/country",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"country"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getAll",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"fullname\":\"Shuhrat Anorboyev \",\n    \"email\":\"shuhrat122@gmaail.com\",\n    \"age\":24\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/country",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"country"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getId",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"fullname\":\"Shuhrat anorboyev \",\n    \"email\":\"shuha112@gmaail.com\",\n    \"age\":24\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/country/1",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"country",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"nomi\":\"tosjjsjs\"\n}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/country/15",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"country",
+								"15"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"age\":25\n}"
+						},
+						"url": {
+							"raw": "localhost:3000/country/1",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"country",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

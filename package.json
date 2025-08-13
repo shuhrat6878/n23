@@ -1,0 +1,19 @@
+{
+  "name": "vazifa",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "dev": "node --watch ./src/main.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@koa/router": "^14.0.0",
+    "koa": "^3.0.1",
+    "koa-bodyparser": "^4.4.1",
+    "pg": "^8.16.3"
+  }
+}
