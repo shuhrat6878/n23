@@ -1,0 +1,136 @@
+{
+	"info": {
+		"_postman_id": "20b4e20a-de61-4377-b390-3706aab3011d",
+		"name": "fastifay",
+		"description": "sadaf",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "41773954"
+	},
+	"item": [
+		{
+			"name": "create,user,maktab guruh",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4ODJmZDkyZThkNjljNDgzNmI5MmM0YSIsInJvbGUiOiJTVVBQRVJBRE1JTiIsImlzQWN0aXZlIjp0cnVlLCJpYXQiOjE3NTM3NTkzNzQsImV4cCI6MTc1Mzg0NTc3NH0.pDBCv-adGuffWVEODzuvM_isXeqWDYZvl04f1E0BsUg",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n      \"fullname\":\"Xusnidinov tohir \",\n      \"email\":\"abbosovich3@gmail.com\",\n      \"guruh_id\":3\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3000/users",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"users"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get usrs",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4ODJmZDkyZThkNjljNDgzNmI5MmM0YSIsInJvbGUiOiJTVVBQRVJBRE1JTiIsImlzQWN0aXZlIjp0cnVlLCJpYXQiOjE3NTM3NTkzNzQsImV4cCI6MTc1Mzg0NTc3NH0.pDBCv-adGuffWVEODzuvM_isXeqWDYZvl04f1E0BsUg",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n      \"fullname\":\"Xusnidinov tohir \",\n      \"email\":\"abbosovich3@gmail.com\",\n      \"guruh_id\":3\n}"
+				},
+				"url": {
+					"raw": "localhost:3000/users",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"users"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get GURUH",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4ODJmZDkyZThkNjljNDgzNmI5MmM0YSIsInJvbGUiOiJTVVBQRVJBRE1JTiIsImlzQWN0aXZlIjp0cnVlLCJpYXQiOjE3NTM3NTkzNzQsImV4cCI6MTc1Mzg0NTc3NH0.pDBCv-adGuffWVEODzuvM_isXeqWDYZvl04f1E0BsUg",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n      \"fullname\":\"Xusnidinov tohir \",\n      \"email\":\"abbosovich3@gmail.com\",\n      \"guruh_id\":3\n}"
+				},
+				"url": {
+					"raw": "localhost:3000/guruh",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"guruh"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get  MAKTAB",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:3000/maktab",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"maktab"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
