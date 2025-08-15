@@ -1,0 +1,189 @@
+{
+	"info": {
+		"_postman_id": "efd5d85c-bde5-49c9-ad2b-e823dc4a1bfb",
+		"name": "Maktab",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "41773954"
+	},
+	"item": [
+		{
+			"name": "create User",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4ODJmZDkyZThkNjljNDgzNmI5MmM0YSIsInJvbGUiOiJTVVBQRVJBRE1JTiIsImlzQWN0aXZlIjp0cnVlLCJpYXQiOjE3NTM3NTkzNzQsImV4cCI6MTc1Mzg0NTc3NH0.pDBCv-adGuffWVEODzuvM_isXeqWDYZvl04f1E0BsUg",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n      \"full_name\":\"Xusnidinov Aziz \",\n      \"email\":\"abbosovich4@gmail.com\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:2000/users",
+					"host": [
+						"localhost"
+					],
+					"port": "2000",
+					"path": [
+						"users"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "create MAKTAB",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4ODJmZDkyZThkNjljNDgzNmI5MmM0YSIsInJvbGUiOiJTVVBQRVJBRE1JTiIsImlzQWN0aXZlIjp0cnVlLCJpYXQiOjE3NTM3NTkzNzQsImV4cCI6MTc1Mzg0NTc3NH0.pDBCv-adGuffWVEODzuvM_isXeqWDYZvl04f1E0BsUg",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n      \"maktab\":\"29-Maktab \",\n      \"description\":\"Tumanda 29 chi maktab deb nom qozongan\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:2000/maktab",
+					"host": [
+						"localhost"
+					],
+					"port": "2000",
+					"path": [
+						"maktab"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "create SINF",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n      \"sinf\":\"9-c\",\n      \"description\": \"shu maktabni alocisi\",\n      \"maktabId\":3\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:2000/sinf",
+					"host": [
+						"localhost"
+					],
+					"port": "2000",
+					"path": [
+						"sinf"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET ALL MAKTAB",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:2000/maktab",
+					"host": [
+						"localhost"
+					],
+					"port": "2000",
+					"path": [
+						"maktab"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get all SINF",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n      \"sinf\":\"9-c\",\n      \"description\": \"shu maktabni alocisi\",\n      \"maktabId\":3\n}"
+				},
+				"url": {
+					"raw": "localhost:2000/sinf",
+					"host": [
+						"localhost"
+					],
+					"port": "2000",
+					"path": [
+						"sinf"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get all USERS",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4ODJmZDkyZThkNjljNDgzNmI5MmM0YSIsInJvbGUiOiJTVVBQRVJBRE1JTiIsImlzQWN0aXZlIjp0cnVlLCJpYXQiOjE3NTM3NTkzNzQsImV4cCI6MTc1Mzg0NTc3NH0.pDBCv-adGuffWVEODzuvM_isXeqWDYZvl04f1E0BsUg",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n      \"full_name\":\"Xusnidinov Aziz \",\n      \"email\":\"abbosovich4@gmail.com\"\n}"
+				},
+				"url": {
+					"raw": "localhost:2000/users",
+					"host": [
+						"localhost"
+					],
+					"port": "2000",
+					"path": [
+						"users"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
