@@ -1,0 +1,12 @@
+// {
+//   "compilerOptions": {
+//     "target": "es6",         // JS versiyasi
+//     // "module": "commonjs",    // modul tizimi
+//     "strict": true,          // qat’iy tip tekshiruvi
+//     // "outDir": "./dist",      // kompilyatsiya qilingan fayl joyi
+//     // "rootDir": "./src",      // TS fayllari joyi
+//     "esModuleInterop": true
+//   },
+//   "include": ["src/**/*"],   // kompilyatsiya qilinadigan fayllar
+//   "exclude": ["node_modules"]
+// }
