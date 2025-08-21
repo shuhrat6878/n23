@@ -1,4 +1,4 @@
-// branch yaratish
+// -------BRANCH yaratish -------------------------------
 
 1.  git init 
 2.  git remote add origin https://github.com/shuhrat6878/n23.git
@@ -8,16 +8,27 @@
 6.  git checkout -b <BRENCH NOMI>
 7.  git push -u origin <BRANCH NOMI>
 
-// BRENCHGA OZGARISHLARNI PUSH QILISH
+// --------BRENCHGA OZGARISHLARNI PUSH QILISH----------------------
 
 1.  git add .
 2.  git commit -m "COMMENT YOZAMIZ"
 3.  git push origin <BRANCH-NOMI>
 
 
-// mavjud brendagini yangsig olamiz
+// ---------MAVJUD BRANCHDAGINI yangsig olamiz----------------------
 
 git add .
 git checkout -b "yangi brench nomi"
 git push origin "yangi brench nomi"
+
+
+
+// -------- tsconfig.json fileni ts filega boglab ram QILISH-------------------------
+
+    tsc -p .
+    node script.js
+
+// doimiy realtime run ts file uchun
+
+    npx tsx watch script.ts
 
