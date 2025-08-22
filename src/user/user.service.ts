@@ -7,7 +7,6 @@ import { UpdateUserDto } from "./dto/update-user.dto";
 export class UserService {
   private users: IUser[] = [];
 
-  // ✅ Create
   async create(createUserDto: CreateUserDto): Promise<IUser> {
     const newUser: IUser = {
       id: Date.now().toString(),
@@ -17,17 +16,17 @@ export class UserService {
     return newUser;
   }
 
-  // ✅ Find All
+  
   async findAll(): Promise<IUser[]> {
     return this.users;
   }
 
-  // ✅ Find One
+  
   async findOne(id: string): Promise<IUser | undefined> {
     return this.users.find((user) => user.id === id);
   }
 
-  // ✅ Update
+  
   async update(id: string, updateUserDto: UpdateUserDto): Promise<IUser | null> {
     const index = this.users.findIndex((u) => u.id === id);
     if (index === -1) return null;
@@ -36,7 +35,7 @@ export class UserService {
     return this.users[index];
   }
 
-  // ✅ Remove
+
   async remove(id: string): Promise<IUser | null> {
     const index = this.users.findIndex((u) => u.id === id);
     if (index === -1) return null;
