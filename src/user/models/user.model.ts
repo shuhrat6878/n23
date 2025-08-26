@@ -1,12 +1,14 @@
-import {
-  AllowNull,
-  Column,
-  DataType,
-  Model,
-  Table,
-} from 'sequelize-typescript';
+import { Column,DataType,Model,Table} from 'sequelize-typescript';
+
+interface IUser{
+  id?:string;
+  full_name:string;
+  email:string;
+  image_url?:string
+}
+
 @Table({ tableName: 'users' })
-export class UserModule extends Model {
+export class User extends Model<IUser> {
   @Column({
     type: DataType.STRING,
     allowNull: false,
