@@ -7,13 +7,14 @@ async function bootstrap() {
     
   });
   app.setGlobalPrefix('/api');
+  const PORT = Number(process.env.API_PORT)
   app.useGlobalPipes(new ValidationPipe({
     whitelist: true,
     forbidNonWhitelisted: true,
     errorHttpStatusCode: HttpStatus.UNPROCESSABLE_ENTITY
   }));
   await app.listen(process.env.PORT ?? 3000, () =>
-    console.log('server shu portta ishlamoqda:'),
+    console.log(`server shu portta ishlamoqda:${PORT}`),
   );
 }
 bootstrap();

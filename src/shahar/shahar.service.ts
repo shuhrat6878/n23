@@ -6,7 +6,6 @@ import { UserService } from 'src/user/user.service';
 import { IResponse } from 'src/interfaces/succes-response';
 import { getSuccessRes } from 'src/utils/getSuccesResponse';
 import { Shahar } from './models/shahar.entity';
-import { NotFoundError } from 'rxjs';
 import { User } from 'src/user/models/user.model';
 
 @Injectable()

@@ -5,6 +5,7 @@ import {  User } from "src/user/models/user.model";
 import {  UsersModules } from "src/user/user.module";
 import { Shahar } from "./shahar/models/shahar.entity";
 import { ShaharModule } from "./shahar/shahar.module";
+import { CarModule } from './car/car.module';
 
 @Module({
     imports: [
@@ -25,7 +26,8 @@ import { ShaharModule } from "./shahar/shahar.module";
             models: [User,Shahar]
         }),
         UsersModules,
-        ShaharModule
+        ShaharModule,
+        CarModule
     ],
 })
 export class AppModule {}
