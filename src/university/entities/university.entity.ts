@@ -1,21 +1,23 @@
-import { Column, CreateDateColumn, Entity, PrimaryGeneratedColumn, UpdateDateColumn } from "typeorm";
+import { Faculty } from "src/faculty/entities/faculty.entity";
+import { Column, CreateDateColumn, Entity, OneToMany, PrimaryGeneratedColumn, UpdateDateColumn } from "typeorm";
 
-@Entity('university')
-export class University {
+@Entity('unversity')
+export class Unversity{
     @PrimaryGeneratedColumn()
-    id:number
+    id:number;
 
-    @Column({type:"varchar"})
+    @Column({type:'varchar',unique:true})
     name:string;
 
-
-    @Column({type:"varchar",nullable:true})
+    @Column({type:'varchar',nullable:true})
     location:string;
 
     @CreateDateColumn()
     createAt:Date;
 
-
     @UpdateDateColumn()
-    updagteAt:Date
+    UpdateAt:Date;
+
+    @OneToMany(()=>Faculty,(faculty)=>faculty.unversityId)
+    faculty:Faculty[];
 }

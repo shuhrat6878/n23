@@ -8,6 +8,4 @@ export class CreateUniversityDto {
     @IsString()
     @IsNotEmpty()
     location:string
-    
 }
-

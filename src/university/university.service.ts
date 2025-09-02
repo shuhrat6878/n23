@@ -1,26 +1,73 @@
-import { Injectable } from '@nestjs/common';
+import { Injectable, NotFoundException } from '@nestjs/common';
 import { CreateUniversityDto } from './dto/create-university.dto';
 import { UpdateUniversityDto } from './dto/update-university.dto';
+import { InjectRepository } from '@nestjs/typeorm';
+import { Unversity } from './entities/university.entity';
+import { Repository } from 'typeorm';
+import { getSuccesRes } from 'src/utils/getSuccessRes';
 
 @Injectable()
 export class UniversityService {
-  create(createUniversityDto: CreateUniversityDto) {
-    return 'This action adds a new university';
+  constructor(@InjectRepository(Unversity) private readonly universityRepo: Repository<Unversity>) { }
+  async create(createUniversityDto: CreateUniversityDto) {
+    const data = this.universityRepo.create(createUniversityDto);
+    await this.universityRepo.save(data);
+    return getSuccesRes(data, 201);
   }
 
-  findAll() {
-    return `This action returns all university`;
+  async findAll() {
+    const data = await this.universityRepo.find(
+      {
+        relations: { faculty: true },
+        select: {
+          id: true,
+          name: true,
+          location: true,
+          faculty: {
+            id: true,
+            name: true
+          }
+        }
+      }
+    )
+    return getSuccesRes(data);
   }
 
-  findOne(id: number) {
-    return `This action returns a #${id} university`;
+  async findOne(id: number) {
+    const data = await this.universityRepo.findOne({
+      where: { id },
+      relations: { faculty: true },
+      select: {
+        id: true,
+        name: true,
+        location: true,
+        faculty: {
+          id: true,
+          name: true
+        }
+      }
+    })
+    if (!data) {
+      throw new NotFoundException('Unversity not found');
+    }
+    return getSuccesRes(data);
   }
 
-  update(id: number, updateUniversityDto: UpdateUniversityDto) {
-    return `This action updates a #${id} university`;
+  async update(id: number, updateUniversityDto: UpdateUniversityDto) {
+    await this.universityRepo.update({ id }, updateUniversityDto);
+    const data = await this.universityRepo.findOne({ where: { id } });
+    if (!data) {
+      throw new NotFoundException('Unversity not found');
+    }
+    return getSuccesRes(data)
   }
 
-  remove(id: number) {
-    return `This action removes a #${id} university`;
+  async remove(id: number) {
+    const deleted = await this.universityRepo.delete({ id });
+    console.log(deleted)
+    if (!deleted.affected) {
+      throw new NotFoundException('Unversity not found');
+    }
+    return getSuccesRes({});
   }
 }
