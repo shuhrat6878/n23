@@ -9,6 +9,7 @@ import { getSuccesRes } from 'src/utils/getSuccessRes';
 @Injectable()
 export class UniversityService {
   constructor(@InjectRepository(Unversity) private readonly universityRepo: Repository<Unversity>) { }
+  
   async create(createUniversityDto: CreateUniversityDto) {
     const data = this.universityRepo.create(createUniversityDto);
     await this.universityRepo.save(data);
