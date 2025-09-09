@@ -18,7 +18,11 @@
 
 //Agar butunlay o‘chirib qayta qo‘shmoqchi bo‘lsangiz:
 
-git remote remove origin
-git remote add origin https://github.com/shuhrat6878/n23.git
+     git remote remove origin
+     git remote add origin https://github.com/shuhrat6878/n23.git
+
+// branch urldan uzish va yangi urlga boglash
+
+     git remote set-url origin https://github.com/shuhrat6878/n23.git
 
 
