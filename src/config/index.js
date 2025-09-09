@@ -16,7 +16,15 @@ export default {
 
         REFRESH_KEY:String(process.env.REFRESH_TOKEN_KEY),
         REFRESH_TIME: String(process.env.REFRESH_TOKEN_TIME)
+    },
+    MAIL:{
+        MAIL_HOST:String(),
+        MAIL_PORT:String(),
+        MAIL_USER:String(),
+        MAIL_PASS:String()
+
     }
+
     
     
 }
