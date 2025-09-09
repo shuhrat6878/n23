@@ -1,3 +1,5 @@
+import { AppError } from "../error/AppError"
+
 export const RolesGuard = (...roles) => {
     return async function (req, res, next) {
         try {
@@ -8,10 +10,7 @@ export const RolesGuard = (...roles) => {
                 (roles.includes('ID') && req.params?.id === req.user?.id)) {
                 return next();
             }
-            return res.status(403).json({
-                statusCode: 403,
-                message: "forbidden user"
-            });
+            throw new AppError('forbidden user',403);
         } catch (error) {
             
             return res.status(500).json({

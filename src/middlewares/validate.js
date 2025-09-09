@@ -1,3 +1,4 @@
+import { AppError } from "../error/AppError";
 
 export const validate = (schemaValid)=>{
     return function (req,res,next){
@@ -5,10 +6,7 @@ export const validate = (schemaValid)=>{
             const schema = schemaValid()
             const {error}= schema.validate(req.body);
             if(error){
-                return res.status(422).join({
-                    statusCode:422,
-                    message: error?.details[0]?.message ?? "error input validation"
-                });
+                throw new AppError(error?.details[0]?.message ?? "error input validation",422);
             }
             next();
         } catch (error) {

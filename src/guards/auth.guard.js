@@ -1,5 +1,6 @@
 import token from "../utils/Token.js"
 import config from "../config/index.js";
+import { AppError } from "../error/AppError.js";
 
 export const AuthGuard = async (req,res, next)=>{
     try {
@@ -16,10 +17,7 @@ export const AuthGuard = async (req,res, next)=>{
 
         if(bearer !== 'Bearer' || !authtoken){
             
-            return res.status(401).json({
-                statusCode:401,
-                message:"unauthorized"
-            })
+            throw new AppError('ruxsatsiz--unauthorized',401);
         }
 
         const user =token.verifyToken(authtoken, config.TOKEN.ACCESS_KEY);

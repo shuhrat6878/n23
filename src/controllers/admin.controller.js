@@ -1,9 +1,9 @@
 import Admin from "../models/admin.model.js"
 import { BaseController} from "./base.controller.js"
 import crypto from "../utils/Crypto.js";
-import validator from "../validation/AdminValidation.js";
 import config from "../config/index.js";
 import token from "../utils/Token.js";
+import { AppError } from "../error/AppError.js";
 
 class AdminController extends BaseController{
     constructor(){
@@ -15,17 +15,11 @@ class AdminController extends BaseController{
             const {username, email, password} =req.body;
             const exituUername = await Admin.findOne({username});
             if(exituUername){
-                return res.status(409).json({
-                    statusCode:409,
-                    message: "foydalanuvchi nomi allaqachon mavjud"
-                });
+                throw new AppError('foydalanuvchi nomi allaqachon mavjud',409);
             }
             const exitEmail = await Admin.findOne({email})
             if(exitEmail){
-                return res.status(409).json({
-                    statusCode:409,
-                    message: "foyfdalanuvchi emaili allaqachon mavjud"
-                });
+                throw new AppError('foyfdalanuvchi emaili allaqachon mavjud',409)
             }
             const hashedPassword = await crypto.encrypt(password);
             const admin = await Admin.create({
@@ -54,10 +48,7 @@ class AdminController extends BaseController{
             const admin = await Admin.findOne({username});
             const isMatchPassword = await crypto.decrypt(password, admin?.hashedPassword ?? '');
             if(!isMatchPassword){
-                return res.status(400).json({
-                    statusCode:400,
-                    message: "username or pasword xatoo"
-                })
+                throw new AppError('username or pasword xatoo',400);
             }
 
             const payload = {
@@ -86,25 +77,16 @@ class AdminController extends BaseController{
         try {
             const refreshToken = req.cookies?.refreshTokenAdmin;
             if (!refreshToken) {
-                return res.status(401).json({
-                    statusCode: 401,
-                    message: 'Refresh token not found'
-                });
+                throw new AppError('Refresh token not found',401)
             }
             const verifiedToken=token.verifyToken(refreshToken,config.TOKEN.REFRESH_KEY);
             
             if (!verifiedToken) {
-                return res.status(401).json({
-                    statusCode: 401,
-                    message: 'Refresh token expire'
-                });
+                throw new AppError('Refresh token expire',401)
             }
             const admin = await Admin.findById(verifiedToken?.id);
             if (!admin) {
-                return res.status(403).json({
-                    statusCode: 403,
-                    message: 'Forbidden user'
-                });
+                throw new AppError('Forbidden user',403)
             }
             const paylod = {
                 id: admin._id, role: admin.role, isActive: admin.isActive
@@ -131,24 +113,15 @@ class AdminController extends BaseController{
         try {
             const refreshToken = req.cookies?.refreshTokenAdmin;
             if (!refreshToken) {
-                return res.status(401).json({
-                    statusCode: 401,
-                    message: 'Refresh token not found'
-                });
+                throw new AppError('Refresh token not found',401);
             }
             const verifiedToken = token.verifyToken(refreshToken, config.TOKEN.REFRESH_KEY);
             if (!verifiedToken) {
-                return res.status(401).json({
-                    statusCode: 401,
-                    message: 'Refresh token expire'
-                });
+                throw new AppError('Refresh token expire',401);
             }
             const admin = await Admin.findById(verifiedToken?.id);
             if (!admin) {
-                return res.status(403).json({
-                    statusCode: 403,
-                    message: 'Forbidden user'
-                });
+                throw new AppError('Forbidden user',403)
             }
             res.clearCookie('refreshTokenAdmin');
             return res.status(200).json({

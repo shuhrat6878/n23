@@ -1,4 +1,5 @@
 import { isValidObjectId } from "mongoose";
+import { AppError } from "../error/AppError.js";
 
 export class BaseController {
     constructor(model){
@@ -41,17 +42,11 @@ export class BaseController {
         try {
             const id = req.params?.id;
             if(!isValidObjectId(id)){
-                return res.status(400).json({
-                    statusCode:400,
-                    message: "invalid object  by id"
-                });
+                throw new AppError('Invalid objektId', 400);
             }
             const data = await this.model.findById(id);
             if(!data){
-                return res.status(404).json({
-                    statusCode:404,
-                    message: "not faund"
-                });
+               throw new AppError('not faund', 404)
             }
             return res.status(200).json({
                 statusCode: 200,
@@ -71,17 +66,11 @@ export class BaseController {
         try {
             const id = req.params?.id;
             if(!isValidObjectId(id)){
-                return res.status(400).json({
-                    statusCode: 400,
-                    message:'invalid object'
-                })
+                throw new AppError ('invalit objectId',400)
             }
             const data = await this.model.findByIdAndUpdate(id,req.body,{new:true});
             if (!data){
-                return res.status(404).json({
-                    statusCode:404,
-                    message: "not faund byid"
-                });
+                throw new AppError('not faund ', 404)
             }
             return res.status(200).json({
                 statusCode: 200,
@@ -101,17 +90,11 @@ export class BaseController {
         try {
             const id = req.params?.id;
             if(!isValidObjectId(id)){
-                return res.status(400).json({
-                    statusCode: 400,
-                    message:'invalid object'
-                })
+                throw new AppError('invalid objektId',400)
             }
             const data = await this.model.findByIdAndDelete(id);
             if (!data){
-                return res.status(404).json({
-                    statusCode:404,
-                    message: "not faund byid"
-                });
+                throw new AppError('not faund ',404)
             }
             return res.status(200).json({
                 statusCode: 200,
