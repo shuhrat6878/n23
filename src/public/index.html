@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Mini Chat</title>
+  <script src="https://cdn.socket.io/4.7.2/socket.io.min.js"></script>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f4f6f9;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+    .chat-container {
+      width: 400px;
+      height: 500px;
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+    }
+    .chat-header {
+      background: #4a90e2;
+      color: white;
+      padding: 12px;
+      text-align: center;
+      font-size: 18px;
+      font-weight: bold;
+    }
+    #messages {
+      flex: 1;
+      padding: 12px;
+      overflow-y: auto;
+      background: #fafafa;
+    }
+    .message {
+      margin: 6px 0;
+      padding: 8px 10px;
+      border-radius: 8px;
+      max-width: 75%;
+      word-wrap: break-word;
+    }
+    .my-message {
+      background: #4a90e2;
+      color: white;
+      margin-left: auto;
+    }
+    .other-message {
+      background: #e6e6e6;
+      color: #870909;
+      margin-right: auto;
+    }
+    .chat-footer {
+      display: flex;
+      padding: 10px;
+      border-top: 1px solid #ddd;
+      background: #0938b9;
+    }
+    .chat-footer input {
+      flex: 1;
+      padding: 8px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      margin-right: 8px;
+      font-size: 14px;
+    }
+    .chat-footer button {
+      background: #4a90e2;
+      color: white;
+      border: none;
+      padding: 8px 14px;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+    .chat-footer button:hover {
+      background: #357abd;
+    }
+  </style>
+</head>
+<body>
+  <div class="chat-container">
+    <div class="chat-header">💬 Mini Chat</div>
+    <div id="messages"></div>
+    <div class="chat-footer">
+      <input id="name" placeholder="Ism">
+      <input id="message" placeholder="Xabar...">
+      <button onclick="sendMessage()">Yuborish</button>
+    </div>
+  </div>
+
+  <script>
+    const socket = io("http://localhost:3000");
+    const messagesDiv = document.getElementById("messages");
+    const nameInput = document.getElementById("name");
+    const messageInput = document.getElementById("message");
+
+    socket.on("message", (data) => {
+      const div = document.createElement("div");
+      div.classList.add("message");
+
+      
+      if (data.sender === nameInput.value) {
+        div.classList.add("my-message");
+      } else {
+        div.classList.add("other-message");
+      }
+
+      div.textContent = `${data.sender}: ${data.text}`;
+      messagesDiv.appendChild(div);
+      messagesDiv.scrollTop = messagesDiv.scrollHeight;
+    });
+
+    function sendMessage() {
+      const name = nameInput.value || "Anonim";
+      const text = messageInput.value.trim();
+      if (!text) return;
+      socket.emit("message", { sender: name, text: text });
+      messageInput.value = "";
+    }
+
+   
+    messageInput.addEventListener("keyup", (e) => {
+      if (e.key === "Enter") sendMessage();
+    });
+  </script>
+</body>
+</html>
